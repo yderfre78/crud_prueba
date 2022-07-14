@@ -48,19 +48,29 @@ form {
 
 }
 
-hr{
+hr {
   margin: 2rem auto;
 }
 
-table{
+table {
   border-spacing: 0;
   border-collapse: collapse;
   width: 100%;
 }
+
 th,
-td{
+td {
   border: thin solid #dedede;
   padding: 0.5rem 1rem;
   text-align: left;
   vertical-align: top;
+}
+
+@media screen and (min-width: 1024px) {
+  .grid-1-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 2rem;
+  }
 }

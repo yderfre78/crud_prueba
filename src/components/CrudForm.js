@@ -54,7 +54,7 @@ export const CrudForm = ({
 
   return (
     <div>
-      <div>{dataToEdit ? "Editar" : "Agregar"}</div>
+      <h3>{dataToEdit ? "Editar" : "Agregar"}</h3>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
