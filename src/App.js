@@ -1,4 +1,4 @@
-import { CrudApp } from "./components/CrudApp";
+import { CrudApi } from "./components/CrudApi";
 
 
 
@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <h1>Agenda De Contactos</h1>
-      <CrudApp />
+      <CrudApi />
   
     </div>
   );
