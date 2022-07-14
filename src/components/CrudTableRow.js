@@ -1,14 +1,14 @@
 import React from "react";
 
-export const CrudTableRow = () => {
+export const CrudTableRow = ({el}) => {
   return (
     <tr>
-      <td>Juan</td>
-      <td>310-123-4561</td>
-      <td>20</td>
-      <td>juan@gmail.com</td>
-      <td>calle falsa 123</td>
-      <td>10/10/2002</td>
+      <td>{el.name}</td>
+      <td>{el.phone}</td>
+      <td>{el.age}</td>
+      <td>{el.email}</td>
+      <td>{el.address}</td>
+      <td>{el.DateBirt}</td>
       <td>
         <button>Editar</button> <button>Eliminar</button>
       </td>

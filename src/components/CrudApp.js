@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+
+import { CrudForm } from "./CrudForm";
+import { CrudTable } from "./CrudTable";
 
 const initialDb = [
   {
@@ -49,9 +52,23 @@ const initialDb = [
 ];
 
 export const CrudApp = () => {
+  const [db, setDb] = useState(initialDb);
+  const [dataToEdit, setDataToEdit] = useState(null);
+  const createData = (data) => {
+    setDb([...db, data]);
+  };
+  const updateData = (data) => {
+    setDb(db.map((el) => (el.id === data.id ? data : el)));
+  };
+  const deleteData = (id) => {
+    setDb(db.filter((el) => el.id !== id));
+  };
+
   return (
     <div>
       <h2>CRUD APP</h2>
+      <CrudForm createData={createData} updateData={updateData} dataToEdit={dataToEdit} setDataToEdit={setDataToEdit} />
+      <CrudTable data={db} deleteData={deleteData} />
     </div>
   );
 };
