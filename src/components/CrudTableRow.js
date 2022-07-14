@@ -10,7 +10,7 @@ export const CrudTableRow = ({el, setDataToEdit, deleteData  }) => {
       <td>{age}</td>
       <td>{email}</td>
       <td>{address}</td>
-      <td>{DateBirth}</td>
+      <td>{ DateBirth}</td>
       <td>
         <button onClick={()=>setDataToEdit(el)}>Editar</button> <button onClick={()=>deleteData(id)}>Eliminar</button>
       </td>

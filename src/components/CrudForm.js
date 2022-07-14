@@ -1,4 +1,9 @@
 import React, { useState, useEffect } from "react";
+
+import moment from "moment";
+
+import "moment-timezone";
+
 const initialForm = {
   id: null,
   name: "",
@@ -91,14 +96,19 @@ export const CrudForm = ({
           onChange={handleChange}
           value={form.address}
         ></input>
-        <input
-          type="text"
-          name="DateBirth"
-          placeholder="Fecha de Nacimiento"
-          onChange={handleChange}
-          value={form.DateBirth}
-        ></input>
-        <button type="reset" value="Limpiar" onClick={handleReset}>Limpiar</button>
+        <div>
+          <h4>Fecha de Nacimiento</h4>
+          <input
+            type="date"
+            name="DateBirth"
+            placeholder="Fecha de Nacimiento"
+            onChange={handleChange}
+            value={ moment(form.DateBirth).format("yyyy-MM-dd")}
+          ></input>
+        </div>
+        <button type="reset" value="Limpiar" onClick={handleReset}>
+          Limpiar
+        </button>
         <button type="submit" value="Enviar">
           Enviar
         </button>
