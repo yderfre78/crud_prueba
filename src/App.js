@@ -1,10 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { CrudApp } from "./components/CrudApp";
 
 function App() {
   return (
-    <div className="App">
-    
+    <div>
+      <h1>Agenda De Contactos</h1>
+      <CrudApp />
     </div>
   );
 }
