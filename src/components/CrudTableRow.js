@@ -1,8 +1,9 @@
 import React from "react";
 
-export const CrudTableRow = ({el, setDataToEdit, deleteData }) => {
+export const CrudTableRow = ({el, setDataToEdit, deleteData  }) => {
     let {id, name, phone, age, email, address, DateBirth} = el;
   return (
+    
     <tr>
       <td>{name}</td>
       <td>{phone}</td>

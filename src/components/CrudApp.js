@@ -9,7 +9,7 @@ const initialDb = [
     name: "Juan",
     phone: "310-123-4561",
     age: "20",
-    email: "juan@gmail.com ",
+    email: "fernandojuan@gmail.com ",
     address: "calle falsa 123",
     DateBirth: "10/10/2002",
   },
@@ -53,12 +53,17 @@ const initialDb = [
 
 export const CrudApp = () => {
   const [db, setDb] = useState(initialDb);
+  const [dbSearc, setDbSearch] = useState(initialDb);
   const [dataToEdit, setDataToEdit] = useState(null);
+  
   const createData = (data) => {
     data.id = db.length + 1;
     //console.log(data);
     setDb([...db, data]);
   };
+
+ 
+
   const updateData = (data) => {
     let newData = db.map((el) => (el.id === data.id ? data : el));
     setDb(newData);
@@ -78,6 +83,7 @@ export const CrudApp = () => {
   return (
     <div>
       <h2>CRUD APP</h2>
+    
       <article className="grid-1-2">
         <CrudForm
           createData={createData}
@@ -90,6 +96,10 @@ export const CrudApp = () => {
           data={db}
           setDataToEdit={setDataToEdit}
           deleteData={deleteData}
+          setDb={setDb}
+          setDbSearch={setDbSearch}
+          dbSearch={dbSearc}
+      
         />
       </article>
     </div>
