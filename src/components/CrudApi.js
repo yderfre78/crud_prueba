@@ -15,39 +15,92 @@ export const CrudApi = () => {
 
   let api = helpHttp();
   let url = "http://localhost:5000/users";
+
+ 
+
+
   useEffect(() => {
     setLoading(true);
-    api.get(url).then((res) => {
-      //  console.log(res)
-      if (!res.err) {
-        setDb(res);
-        setError(null);
-      } else {
-        setDb(null);
-        setError(res);
-      }
+   
+    helpHttp()
+      .get(url)
+      .then((res) => {
+         console.log(res)
 
-      setLoading(false);
-    });
-  }, []);
+        if (!res.err) {
+          setDb(res);
+          setDbSearch(res);
+          setError(null);
+        } else {
+          setDb(null);
+          setDbSearch(null);
+          setError(res);
+        }
+
+        setLoading(false);
+      });
+  }, [url,]);
+
+
 
   const createData = (data) => {
     data.id = db.length + 1;
-    //console.log(data);
-    setDb([...db, data]);
+    let options = {
+      body: data,
+      headers: { "content-type": "application/json" },
+    };
+    api.post(url, options).then((res) => {
+      // console.log(res);
+
+      if (!res.err) {
+        setDb([...db, res]);
+      } else {
+        setError(res);
+      }
+    });
   };
 
   const updateData = (data) => {
-    let newData = db.map((el) => (el.id === data.id ? data : el));
-    setDb(newData);
+    let endpoint = `${url}/${data.id}`;
+    // console.log(endpoint);
+    let options = {
+      body: data,
+      headers: { "content-type": "application/json" },
+    };
+    api.put(endpoint, options).then((res) => {
+      // console.log(res);
+      if (!res.err) {
+        let newData = db.map((el) => (el.id === data.id ? data : el));
+        setDb([...db, res]);
+        setDb(newData);
+      } else {
+        setError(res);
+      }
+    });
   };
+
   const deleteData = (id) => {
+   
     let isDelete = window.confirm(
       `Esta seguro que desea eliminar el registro ${id}`
     );
 
     if (isDelete) {
-      setDb(db.filter((el) => el.id !== id));
+      let endpoint = `${url}/${id}`;
+      let options ={
+        headers: { "content-type": "application/json" },
+      }
+      api.del(endpoint, options).then(res =>{
+         // console.log(res);
+      if (!res.err) {
+        let newData = db.filter((el) => el.id !== id);
+        // setDb([...db, res]);
+        setDb(newData);
+      } else {
+        setError(res);
+      }
+      })
+      
     } else {
       return;
     }
@@ -67,7 +120,12 @@ export const CrudApi = () => {
         {/* <hr /> */}
 
         {loading && <Loader />}
-        {error && <Message msg={`Error ${error.status}: ${error.statusText} `} bgColor="#dc3545" />}
+        {error && (
+          <Message
+            msg={`Error ${error.status}: ${error.statusText} `}
+            bgColor="#dc3545"
+          />
+        )}
         {db && (
           <CrudTable
             data={db}
