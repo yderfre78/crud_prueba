@@ -1,25 +1,60 @@
 import React, { useState, useEffect } from "react";
+const initialForm = {
+  id: null,
+  name: "",
+  phone: "",
+  age: "",
+  email: "",
+  address: "",
+  DateBirth: "",
+};
 
-export const CrudForm = () => {
-  const initialForm = {
-    id: null,
-    name: "",
-    phone: "",
-    age: "",
-    email: "",
-    address: "",
-    DateBirth: "",
-  };
-
+export const CrudForm = ({
+  createData,
+  updateData,
+  dataToEdit,
+  setDataToEdit,
+}) => {
   const [form, setForm] = useState(initialForm);
+  useEffect(() => {
+    if (dataToEdit) {
+      setForm(dataToEdit);
+    } else {
+      setForm(initialForm);
+    }
+  }, [dataToEdit]);
 
-  const handleChange = (_e) => {};
-  const handleSubmit = (_e) => {};
-  const handleReset = (_e) => {};
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (
+      !form.name ||
+      !form.phone ||
+      !form.age ||
+      !form.email ||
+      !form.address ||
+      !form.DateBirth
+    ) {
+      alert("Todos los campos son obligatorios");
+      return;
+    }
+    if (form.id === null) {
+      createData(form);
+    } else {
+      updateData(form);
+    }
+    handleReset();
+  };
+  const handleReset = (e) => {
+    setForm(initialForm);
+    setDataToEdit(null);
+  };
 
   return (
     <div>
-      <div>Agregar</div>
+      <div>{dataToEdit ? "Editar" : "Agregar"}</div>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -60,10 +95,12 @@ export const CrudForm = () => {
           type="text"
           name="DateBirth"
           placeholder="Fecha de Nacimiento"
+          onChange={handleChange}
+          value={form.DateBirth}
         ></input>
-        <input type="reset" value="Limpiar" onReset={handleReset}></input>
+        <input type="reset" value="Limpiar" onClick={handleReset}></input>
         <button type="submit" value="Enviar">
-          Agregar
+          Enviar
         </button>
       </form>
     </div>
