@@ -98,7 +98,7 @@ export const CrudForm = ({
           onChange={handleChange}
           value={form.DateBirth}
         ></input>
-        <input type="reset" value="Limpiar" onClick={handleReset}></input>
+        <button type="reset" value="Limpiar" onClick={handleReset}>Limpiar</button>
         <button type="submit" value="Enviar">
           Enviar
         </button>

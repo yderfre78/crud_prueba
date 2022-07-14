@@ -64,15 +64,15 @@ export const CrudApp = () => {
     setDb(newData);
   };
   const deleteData = (id) => {
+    let isDelete = window.confirm(
+      `Esta seguro que desea eliminar el registro ${id}`
+    );
 
-    let isDelete = window.confirm(`Esta seguro que desea eliminar el registro ${id}`);
-
-    if(isDelete){
-        setDb(db.filter((el) => el.id !== id));
-    }else{
-        return;
+    if (isDelete) {
+      setDb(db.filter((el) => el.id !== id));
+    } else {
+      return;
     }
-  
   };
 
   return (
@@ -83,8 +83,8 @@ export const CrudApp = () => {
         updateData={updateData}
         dataToEdit={dataToEdit}
         setDataToEdit={setDataToEdit}
-        
       />
+      <hr />
       <CrudTable
         data={db}
         setDataToEdit={setDataToEdit}
