@@ -81,8 +81,7 @@ export const CrudApp = () => {
   };
 
   return (
-    <div>
-      <h2>CRUD APP</h2>
+
     
       <article className="grid-1-2">
         <CrudForm
