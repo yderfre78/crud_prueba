@@ -16,16 +16,13 @@ export const CrudApi = () => {
   let api = helpHttp();
   let url = "http://localhost:5000/users";
 
- 
-
-
   useEffect(() => {
     setLoading(true);
-   
+
     helpHttp()
       .get(url)
       .then((res) => {
-         console.log(res)
+        console.log(res);
 
         if (!res.err) {
           setDb(res);
@@ -39,9 +36,7 @@ export const CrudApi = () => {
 
         setLoading(false);
       });
-  }, [url,]);
-
-
+  }, [url]);
 
   const createData = (data) => {
     data.id = db.length + 1;
@@ -80,27 +75,25 @@ export const CrudApi = () => {
   };
 
   const deleteData = (id) => {
-   
     let isDelete = window.confirm(
       `Esta seguro que desea eliminar el registro ${id}`
     );
 
     if (isDelete) {
       let endpoint = `${url}/${id}`;
-      let options ={
+      let options = {
         headers: { "content-type": "application/json" },
-      }
-      api.del(endpoint, options).then(res =>{
-         // console.log(res);
-      if (!res.err) {
-        let newData = db.filter((el) => el.id !== id);
-        // setDb([...db, res]);
-        setDb(newData);
-      } else {
-        setError(res);
-      }
-      })
-      
+      };
+      api.del(endpoint, options).then((res) => {
+        // console.log(res);
+        if (!res.err) {
+          let newData = db.filter((el) => el.id !== id);
+          // setDb([...db, res]);
+          setDb(newData);
+        } else {
+          setError(res);
+        }
+      });
     } else {
       return;
     }
@@ -108,8 +101,6 @@ export const CrudApi = () => {
 
   return (
     <div>
-      <h2>CRUD APP</h2>
-
       <article className="grid-1-2">
         <CrudForm
           createData={createData}

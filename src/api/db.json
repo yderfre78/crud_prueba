@@ -7,7 +7,7 @@
       "age": "20",
       "email": "fernandojuan@gmail.com ",
       "address": "calle falsa 123",
-      "DateBirth": "10/10/2002"
+      "DateBirth": "2014-07-23"
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "age": "30",
       "email": "Pedro@gmail.com",
       "address": "Calle falsa 124",
-      "DateBirth": "01/01/1992"
+      "DateBirth": "1991-12-31"
     },
     {
       "id": 3,
@@ -25,7 +25,7 @@
       "age": "40",
       "email": "maria@gmail.com",
       "address": "Calle falsa 125",
-      "DateBirth": "01/01/1982"
+      "DateBirth": "1981-12-30"
     },
     {
       "id": 4,
@@ -34,7 +34,7 @@
       "age": "50",
       "email": "carlos@gmail.com",
       "address": "Calle falsa 126",
-      "DateBirth": "01/01/1972"
+      "DateBirth": "1972-02-01"
     },
     {
       "id": 6,

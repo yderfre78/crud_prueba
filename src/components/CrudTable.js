@@ -45,7 +45,6 @@ export const CrudTable = ({
           .toString()
           .toLowerCase()
           .includes(searchTerm.toLowerCase())
-       
       ) {
         return element;
       }
@@ -104,7 +103,7 @@ export const CrudTable = ({
           </tr>
         </thead>
         <tbody>
-          {data &&
+          {data.length > 0 ? (
             data.map((el) => (
               <CrudTableRow
                 key={el.id}
@@ -112,7 +111,14 @@ export const CrudTable = ({
                 setDataToEdit={setDataToEdit}
                 deleteData={deleteData}
               />
-            ))}
+            ))
+          ) : (
+            <tr>
+              <td colSpan={7}>
+                <h2>Sin datos</h2>
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>

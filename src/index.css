@@ -23,13 +23,15 @@ input[type='text'] {
   line-height: 1;
   background-color: transparent;
 }
-
+button:hover {
+  background-color: rgb(187, 211, 233);
+}
 button,
 input[type='submit'] {
   border: thin solid #dedede;
   border-radius: 0.25rem;
   padding: 0.5rem 1rem;
-  margin: 0 0.5rem 0 0;
+  margin: 0 0.5rem 0.5rem 0;
   display: inline-block;
   background-color: #eee;
   color: #444;
@@ -41,6 +43,13 @@ input[type='submit'] {
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
+
+
+  text-align: center;
+
+
+
+  width: 100px;
 }
 
 form {

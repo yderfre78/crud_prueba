@@ -103,13 +103,13 @@ export const CrudForm = ({
             name="DateBirth"
             placeholder="Fecha de Nacimiento"
             onChange={handleChange}
-            value={ moment(form.DateBirth).format("yyyy-MM-dd")}
+            value={ moment(form.DateBirth).format("YYYY-MM-DD")}
           ></input>
         </div>
-        <button type="reset" value="Limpiar" onClick={handleReset}>
+        <button className=" m-2  " type="reset" value="Limpiar" onClick={handleReset}>
           Limpiar
         </button>
-        <button type="submit" value="Enviar">
+        <button className=" m-2   "  type="submit" value="Enviar">
           Enviar
         </button>
       </form>
