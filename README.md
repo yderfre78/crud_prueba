@@ -13,7 +13,7 @@ In the package.json file, there is the following script, run the database on por
 
 
 In the following youtube video the operation of the application is explained:
-[Application test](htthttps://youtu.be/8YYL-79HIsMp:// "Application test")
+[Application test](https://youtu.be/8YYL-79HIsMp)
 
 
 
