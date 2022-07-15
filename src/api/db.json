@@ -2,30 +2,21 @@
   "users": [
     {
       "id": 1,
-      "name": "Juan",
+      "name": "Juan ",
       "phone": "310-123-4561",
-      "age": "20",
+      "age": "30",
       "email": "fernandojuan@gmail.com ",
-      "address": "calle falsa 123",
+      "address": "calle falsa 454554",
       "DateBirth": "2014-07-23"
     },
     {
       "id": 2,
-      "name": "Pedro",
+      "name": "Pedro Andres",
       "phone": "310-123-4562",
       "age": "30",
-      "email": "Pedro@gmail.com",
+      "email": "bejarano@gmail.com",
       "address": "Calle falsa 124",
       "DateBirth": "1991-12-31"
-    },
-    {
-      "id": 3,
-      "name": "Maria",
-      "phone": "310-123-4563",
-      "age": "40",
-      "email": "maria@gmail.com",
-      "address": "Calle falsa 125",
-      "DateBirth": "1981-12-30"
     },
     {
       "id": 4,
@@ -38,12 +29,21 @@
     },
     {
       "id": 6,
-      "name": "Wilver",
-      "phone": "45646",
-      "age": "40",
-      "email": "wilver@gmail.com",
-      "address": "calle falsa 567",
-      "DateBirth": "2015-02-14"
+      "name": "Tomas",
+      "phone": "96584",
+      "age": "10",
+      "email": "tomas@gmail.com",
+      "address": "cara",
+      "DateBirth": "2010-01-15"
+    },
+    {
+      "id": 1657844620070,
+      "name": "Dory",
+      "phone": "5232",
+      "age": "10",
+      "email": "Rivera",
+      "address": "calle falsa 852",
+      "DateBirth": "2012-07-14"
     }
   ]
 }

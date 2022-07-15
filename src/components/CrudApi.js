@@ -39,7 +39,7 @@ export const CrudApi = () => {
   }, [url]);
 
   const createData = (data) => {
-    data.id = db.length + 1;
+    data.id = Date.now();
     let options = {
       body: data,
       headers: { "content-type": "application/json" },
